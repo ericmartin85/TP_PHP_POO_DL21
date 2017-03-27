@@ -11,8 +11,8 @@ require_once("cours.php");
 echo "</br><b>Liste des élèves</b><br><br>";
 for ($i=0;$i<10;$i++)
 {
-  $ville_test=$tabVilles[rand(0,(count($tabVilles) - 1))];
-  $cp_test=$tabVilleCP[$ville_test][rand(0,nbCP($ville_test))];
+  $ville_test=$tabVilles[rand(0,(count($tabVilles) - 1))];//récupération d'une ville au hasard
+  $cp_test=$tabVilleCP[$ville_test][rand(0,nbCP($ville_test))];//récupération d'un code postal au hasard en fonction de la ville choisie
 
   $etudiant[$i]=new Etudiant(valTabSimpleAlea($tabNoms),valTabSimpleAlea($tabPrenoms)," ".rand(0,100)." ".valTabSimpleAlea($tabTypeVoies)." ".valTabSimpleAlea($tabNomsVoies)." ".$cp_test." ".$ville_test,rand(17,35),$coefFam=rand(5000,300000),Etudiant::calculFrais($coefFam),$tabUniversites[array_rand($tabUniversites,1)],$tabCodesVillesUFR[array_rand($tabCodesVillesUFR,1)]);
 
@@ -23,16 +23,17 @@ for ($i=0;$i<10;$i++)
 echo "</br><b>Liste des Professeurs</b><br><br>";
 for ($i=0;$i<10;$i++)
 {
-  $ville_test=$tabVilles[rand(0,(count($tabVilles) - 1))];
-  $cp_test=$tabVilleCP[$ville_test][rand(0,nbCP($ville_test))];
+  $ville_test=$tabVilles[rand(0,(count($tabVilles) - 1))];//récupération d'une ville au hasard
+  $cp_test=$tabVilleCP[$ville_test][rand(0,nbCP($ville_test))];//récupération d'un code postal au hasard en fonction de la ville choisie
 
   $professeur[$i]=new Professeur(valTabSimpleAlea($tabNoms),valTabSimpleAlea($tabPrenoms)," ".rand(0,100)." ".valTabSimpleAlea($tabTypeVoies)." ".valTabSimpleAlea($tabNomsVoies)." ".$cp_test." ".$ville_test,rand(25,62),rand(20000,45000),$tabUniversites[array_rand($tabUniversites,1)],$tabCodesVillesUFR[array_rand($tabCodesVillesUFR,1)]);
 
   echo $professeur[$i];
 }
+
 //Création de cours
 echo "</br><b>Cours dispensés</b></br></br>";
-$tabCours[1]=new Cours("DSP","Droit Général");
+$tabCours[1]=new Cours("DSP","Droit Général",valTabSimpleAlea($tabNoms)." ".valTabSimpleAlea($tabPrenoms),valTabSimpleAlea($tabNoms)." ".valTabSimpleAlea($tabPrenoms));
 
 echo $tabCours[1];
 
