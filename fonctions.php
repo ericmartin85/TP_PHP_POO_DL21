@@ -1,5 +1,5 @@
 <?php
-
+//Retourne le nombre de code postaux moins un. Ce nombre servira dans le fichier index.php pour la récupération d'un code postal au hasard en fonction de la ville choisie
 function nbCP($ville_test)
 {
     $nbCP=0;
