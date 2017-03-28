@@ -25,10 +25,16 @@ class Etudiant extends Personne
   }
 
 
-  public function __toString()
+  public function getCoord()
   {
     return "<b>Nom:</b> ".$this->nom.", <b>Prénom:</b> ".$this->prenom.", <b>Adresse:</b> ".$this->adresse.", <b>Age:</b> ".$this->age." ans, "." <b>Coefficient Familial:</b> ".$this->_coefFam.", <b>Frais d'nscription:</b> ".$this->_fraisIns." € </br>".", <b>UFR:</b> ".$this->_ufrIns.", <b>Ville:</b> ".$this->_ville.", <b>N° etudiant:</b> ".$this->_idEtu."<br><br>";
   }
+
+  public function __toString()
+  {
+    return "<b>Nom:</b> ".$this->nom.", <b>Prénom:</b> ".$this->prenom.", <b>Adresse:</b> ".$this->adresse.", <b>Age:</b> ".$this->age." ans, "." <b>Coefficient Familial:</b> ".$this->_coefFam.", <b>Frais d'nscription:</b> ".$this->_fraisIns." €".", <b>N° etudiant:</b> ".$this->_idEtu."<br>";
+  }
+
 
   static public function calculFrais($coefFam){
     // calcul des frais de scolarité d'après le quotient familial

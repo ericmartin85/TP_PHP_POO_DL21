@@ -4,15 +4,14 @@ require_once("FonctionsAleatoires.php");
 class Cours
 {
   private $_theme;
-  private $_ufr;
-  private $_etudiants;//array();
-  private $_professeur;
-  public function __construct($ufr,$theme,$professeur,$etudiants)
+  private $_ufrCours;
+  private $_etudiantsCours=array();//plusieurs étudiants possibles dans un cours
+  private $_professeurCours;
+
+  public function __construct($ufr,$theme)
   {
     $this->_theme=$theme;
-    $this->_ufr=$ufr;
-    $this->_professeur=$professeur;
-    $this->_etudiants=$etudiants;
+    $this->_ufrCours=$ufr;
   }
 
   public function get($nom)
@@ -27,7 +26,25 @@ class Cours
 
   public function __toString()
   {
-    return " <b>UFR:</b> ".$this->_ufr.", <b>Thème:</b> ".$this->_theme.", <b>Professeur:</b> ".$this->_professeur.", </br><b>Etudiants:</b> ".$this->_etudiants." .<br>";
+    return " <b>UFR:</b> ".$this->_ufrCours.", Cours de ".$this->_theme." dispensé par le professeur : <br/>".$this->professeur."<br/>";
   }
+
+  public function AjouterEtudiant(Etudiant $etudiantCours){ // Ajoute étudiant au cours
+     $this->etudiant[]=$etudiantCours;
+   }
+   public function AjouterProfesseur(Professeur $professeurCours){ // ajoute prof au cours
+     $this->professeur=$professeurCours;
+   }
+
+   //Affichage du cours, du professeur et des étudiants y participant
+   public function AfficherCours()
+   {
+      echo $this->__toString();
+      echo "Liste des étudiants participant à ce cours cours : <br/><br/>";
+      foreach ($this->etudiant as &$value)
+      {
+        echo $value;
+      }
+   }
 }
 ?>

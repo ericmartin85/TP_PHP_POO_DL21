@@ -25,15 +25,12 @@ class Professeur extends Personne
 
   public function __toString()
   {
-      return " <b>Nom:</b> ".$this->nom.", <b>Prénom:</b> ".$this->prenom.", <b>Adresse:</b> ".$this->adresse.", <b>Age:</b> ".$this->age." ans".", <b>Salaire:</b> ".$this->_salaire." €/an ".", <b>UFR:</b> ".$this->_ufr.", <b>Ville:</b> ".$this->_ville.", <b>N° Professeur:</b> ".$this->_idProf." .<br>";
+      return " <b>Nom:</b> ".$this->nom.", <b>Prénom:</b> ".$this->prenom.", <b>Adresse:</b> ".$this->adresse.", <b>Age:</b> ".$this->age." ans".", <b>Salaire:</b> ".$this->_salaire." €/an ".", <b>N° Professeur:</b> ".$this->_idProf." .<br>";
   }
 
-  /*public function listeCoursProf()
+  public function getCoord()
   {
-    for ($i=0; $i < count($this->_cours); $i++)
-    {
-      echo $this->_cours[$i]."<br>";
-    }
-  }*/
+      return " <b>Nom:</b> ".$this->nom.", <b>Prénom:</b> ".$this->prenom.", <b>Adresse:</b> ".$this->adresse.", <b>Age:</b> ".$this->age." ans".", <b>Salaire:</b> ".$this->_salaire." €/an ".", <b>UFR:</b> ".$this->_ufr.", <b>Ville:</b> ".$this->_ville.", <b>N° Professeur:</b> ".$this->_idProf." .<br>";
+  }
 }
 ?>
